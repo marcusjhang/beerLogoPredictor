@@ -10,6 +10,10 @@
 - 80% training set, 20% validation
 - labels: https://docs.google.com/document/d/1FpFuS3t5O0PdLV6cuKWcUKLSrLfABW0MR47Vb34X-bY/edit
 
+### To download Yolo
+`git clone https://github.com/ultralytics/yolov5.git`
+`cd yolov5`
+
 ### To download labelImg
 without venv: (try this first)
 - sudo pip3 install labelImg
