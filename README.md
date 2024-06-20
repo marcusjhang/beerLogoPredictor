@@ -11,8 +11,9 @@
 - labels: https://docs.google.com/document/d/1FpFuS3t5O0PdLV6cuKWcUKLSrLfABW0MR47Vb34X-bY/edit
 
 ### To download Yolo
-`git clone https://github.com/ultralytics/yolov5.git`
-`cd yolov5`
+git clone https://github.com/ultralytics/yolov5  
+cd yolov5
+pip install -r requirements.txt  
 
 ### To download labelImg
 without venv: (try this first)
@@ -44,7 +45,7 @@ with venv:
 2. `cd yolov5`
 
 3. train yolo model
-`python train.py --img 640 --batch 4 --epochs 100 --data data.yaml --cfg yolov5s.yaml --weights yolov5s.pt`
+`python train.py --img 640 --batch 4 --epochs 100 --data ./data.yaml --cfg yolov5s.yaml --weights yolov5s.pt`
 - tune hyperparameters accordingly
 
 4. evaluate yolo model against validation set
@@ -53,7 +54,7 @@ with venv:
 
 5. check evaluation results
 - run `cd runs/val/exp3` or whicever experiment youre currently on
-- run 
+- open confusion_matrix.jpg
 
 5. model can now be used. eg of usage:
 ```python
@@ -82,3 +83,25 @@ plt.show()
 
 ### Misc.
 1. check_font function in yolov5 -> utils -> general.py is edited to disable SSL verification
+```python
+import ssl
+import certifi
+from urllib.request import urlopen
+
+def check_font(font='Arial.ttf', progress=True):
+    import torch
+    from pathlib import Path
+    
+    # Use certifi's SSL context
+    ssl_context = ssl.create_default_context(cafile=certifi.where())
+    
+    file = Path(font)
+    url = 'https://ultralytics.com/assets/' + font
+    
+    # Download the file with the SSL context
+    with urlopen(url, context=ssl_context) as response:
+        with open(file, 'wb') as out_file:
+            out_file.write(response.read())
+```
+
+2. augment_images helps to augment images to generate more, more data for training
