@@ -26,7 +26,7 @@ with venv:
     - source path/to/venv/bin/activate
 
 ### How to Label Images
-1. in terminal, run `labelImg`
+1. in terminal, run `labelImg train1 label1/classes.txt`
 2. format for selection should be 'YOLO'
 3. 'w' to create RectBox, 'a' to go to previous image, 'd' for next image
 
