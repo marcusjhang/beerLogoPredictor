@@ -2,4 +2,7 @@ Logo_Heineken
 Logo_Larue
 Logo_Tiger
 Logo_Bivina
+label_4
 Logo_BiaViet
+w
+Logo_Strongbow

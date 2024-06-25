@@ -44,17 +44,17 @@ with venv:
 
 2. `cd yolov5`
 
-3. train yolo model
+3. train yolo model (edit data.yaml file to set path to training and validation set)
 `python train.py --img 640 --batch 4 --epochs 100 --data ./data.yaml --cfg yolov5s.yaml --weights yolov5s.pt`
 - tune hyperparameters accordingly
 
-4. evaluate yolo model against validation set
+4. evaluate yolo model against validation set 
 - `python val.py --weights runs/train/exp/weights/best.pt --data data.yaml --img 640`
 - note: run `ls runs/train` to see your experiments. change the above file path to which experiment you want to evaluate
 
 5. check evaluation results
 - run `cd runs/val/exp3` or whicever experiment youre currently on
-- open confusion_matrix.jpg
+- `open confusion_matrix.png`
 
 5. model can now be used. eg of usage:
 ```python
